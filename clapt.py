@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #@+leo-ver=5-thin
-#@+node:maphew.20121210013627.1447: * @file clint-n-apt/clapt.py
+#@+node:maphew.20121210013627.1447: * @file clapt.py
 #@@first
 #@@first
 #@@language python
