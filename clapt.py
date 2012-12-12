@@ -81,19 +81,36 @@ def remove(packages):
     for p in packages:
         puts('uninstalling %s' % colored.green(p))
 
-#@+node:maphew.20121212012030.1377: ** dummy
-def dummy():
+#@+node:maphew.20121212012030.1383: *3* list
+def list(*args):
+    '''List installed packages'''
+    packages = ['foofoo','bar','bee','cue'] # this will actually be read from setup.db
+    puts('Installed packages:')
+    with indent(4):
+        for p in packages:
+            puts(colored.green(p))
+#@+node:maphew.20121212012030.1384: *3* locate
+def locate(packages):
+    '''search installed packages for "filename.ext" and report where it was installed to'''
+    
+    for fname in packages:
+        fname = 'apps/barbeecue/%s' % fname # todo: grep through setup.db for filename
+        with indent(4):
+            path,f = os.path.split(fname)
+            puts('%s/%s' % (path, colored.green(f)))    
+#@+node:maphew.20121212012030.1377: ** stub_warning
+def stub_warning():
     """Actually nothing has been done. This is a stub for yet to be implemented functions."""
     print("")    
     width = 60
     with indent(4, quote=colored.cyan('-->')):
-        puts(columns([dummy.__doc__, width]))
+        puts(columns([stub_warning.__doc__, width]))
 #@+node:maphew.20121210013627.1457: ** Main
 # this transforms into install(packages) or remove(packages) or list(packages) etc.
 # courtesy of http://stackoverflow.com/questions/3061/calling-a-function-from-a-string-with-the-functions-name-in-python
 locals()[command](packages)
 
-dummy()
+stub_warning()
 #@-others
 
 #@-leo
